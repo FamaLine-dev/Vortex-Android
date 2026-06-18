@@ -1,6 +1,7 @@
 package com.vortexstore.ui.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,25 +14,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.vortexstore.R;
 import com.vortexstore.models.Product;
+import com.vortexstore.ui.ProductDetailActivity;
 
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
     private Context context;
     private List<Product> products;
-    private OnItemClickListener listener;
+    private String type; // "game", "voucher", "pulsa"
 
-    public interface OnItemClickListener {
-        void onItemClick(Product product);
-    }
-
-    public ProductAdapter(Context context, List<Product> products) {
+    public ProductAdapter(Context context, List<Product> products, String type) {
         this.context = context;
         this.products = products;
-    }
-
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        this.listener = listener;
+        this.type = type;
     }
 
     @NonNull
@@ -61,9 +56,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                 .into(holder.ivImage);
         
         holder.itemView.setOnClickListener(v -> {
-            if (listener != null) {
-                listener.onItemClick(product);
-            }
+            Intent intent = new Intent(context, ProductDetailActivity.class);
+            intent.putExtra("product", product);
+            context.startActivity(intent);
         });
     }
 
