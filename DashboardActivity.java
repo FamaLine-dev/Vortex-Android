@@ -14,9 +14,9 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseUser;
 import com.vortexstore.R;
-import com.vortexstore.adapters.ProductAdapter;
 import com.vortexstore.models.Product;
 import com.vortexstore.services.FirebaseService;
+import com.vortexstore.ui.adapters.ProductAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,21 +76,21 @@ public class DashboardActivity extends AppCompatActivity {
 
     private void setupRecyclerViews() {
         // Products RecyclerView (Horizontal)
-        productAdapter = new ProductAdapter(this, products);
+        productAdapter = new ProductAdapter(this, products, "game");
         rvProducts.setLayoutManager(
                 new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         );
         rvProducts.setAdapter(productAdapter);
         
         // Vouchers RecyclerView (Horizontal)
-        voucherAdapter = new ProductAdapter(this, vouchers);
+        voucherAdapter = new ProductAdapter(this, vouchers, "voucher");
         rvVouchers.setLayoutManager(
                 new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         );
         rvVouchers.setAdapter(voucherAdapter);
         
         // Pulsa RecyclerView (Horizontal)
-        pulsaAdapter = new ProductAdapter(this, pulsaList);
+        pulsaAdapter = new ProductAdapter(this, pulsaList, "pulsa");
         rvPulsa.setLayoutManager(
                 new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         );
@@ -109,7 +109,6 @@ public class DashboardActivity extends AppCompatActivity {
     private void loadProducts() {
         firebaseService.getProducts(
                 productsList -> {
-                    // Filter products by category
                     this.products.clear();
                     this.vouchers.clear();
                     this.pulsaList.clear();
