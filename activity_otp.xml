@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center">
+
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_whatsapp"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verify with WhatsApp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter the OTP sent to your WhatsApp"
+        android:textColor="@color/gray"
+        android:textSize="14sp"
+        android:layout_marginBottom="24dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            android:textColor="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnSendOTP"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="SEND OTP"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/black"
+        android:layout_marginBottom="24dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="16dp">
+
+        <EditText
+            android:id="@+id/etOTP1"
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:maxLength="1"
+            android:inputType="number"
+            android:background="@drawable/otp_input"
+            android:enabled="false"
+            android:layout_marginEnd="8dp" />
+
+        <EditText
+            android:id="@+id/etOTP2"
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:maxLength="1"
+            android:inputType="number"
+            android:background="@drawable/otp_input"
+            android:enabled="false"
+            android:layout_marginEnd="8dp" />
+
+        <EditText
+            android:id="@+id/etOTP3"
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:maxLength="1"
+            android:inputType="number"
+            android:background="@drawable/otp_input"
+            android:enabled="false"
+            android:layout_marginEnd="8dp" />
+
+        <EditText
+            android:id="@+id/etOTP4"
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:maxLength="1"
+            android:inputType="number"
+            android:background="@drawable/otp_input"
+            android:enabled="false"
+            android:layout_marginEnd="8dp" />
+
+        <EditText
+            android:id="@+id/etOTP5"
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:maxLength="1"
+            android:inputType="number"
+            android:background="@drawable/otp_input"
+            android:enabled="false"
+            android:layout_marginEnd="8dp" />
+
+        <EditText
+            android:id="@+id/etOTP6"
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:maxLength="1"
+            android:inputType="number"
+            android:background="@drawable/otp_input"
+            android:enabled="false" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnVerifyOTP"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="VERIFY OTP"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/black"
+        android:enabled="false" />
+
+    <TextView
+        android:id="@+id/tvTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text=""
+        android:textColor="@color/gray"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvResend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resend OTP"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:enabled="false"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:visibility="gone" />
+
+</LinearLayout>
